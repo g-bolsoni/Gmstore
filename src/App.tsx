@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { useEffect, useState } from 'react';
+import api from './services/api';
+interface Games {
+  id: number,
+  slug: string,
+  name: number,
+  background_image: string,
+  genres: any[],
+  platforms: any[],
 }
 
-export default App;
+export function App() {
+  const [games, setGames] = useState<Games[]>([]);
+
+  useEffect(() => {
+    api.get('/games')
+    .then((response) => {
+      console.log(response.data.results);
+      setGames(response.data.results);
+    })
+    .catch((err) => {
+      console.error('Requisição não deu certo !');
+    })
+  }, []);
+
+  return (
+    <>
+      <ul className="listGames">
+        {games.map((game) => {
+          return (
+            <li key={game.id} >
+              <div className="gameName">{game.name}</div>
+              <div className="gameSlug">{game.slug}</div>
+              <img className="gameName" src={game.background_image} />
+              <div className="ganeGen">
+                {(game.genres).map((genre) => {
+                  return (
+                    <div key={genre.id}>
+                      {genre.name} 
+                    </div>
+                  );
+                })}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}

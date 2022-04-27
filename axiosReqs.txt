@@ -1,0 +1,22 @@
+--------------------- GET ---------------------
+axios.get('https://api.rawg.io/docs/')
+.then(function (response) {
+    //Sucesso da requisição !
+    console.log(response);
+})
+.catch(function (err) {
+    //Erro da requisição
+    console.log(err)
+});
+
+async function getUser() {
+    try {
+      const response = await axios.get('https://api.rawg.io/docs/');
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+}
+--------------------- GET ---------------------
+--------------------- POST ---------------------
+--------------------- POST ---------------------
