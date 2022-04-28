@@ -1,7 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import api from '../../services/api';
+import Header from '../../components/Header';
 
+import './style.scss';
 interface Games {
   id: number,
   slug: string,
@@ -10,7 +12,6 @@ interface Games {
   genres: any[],
   platforms: any[],
 }
-// import { Container } from './styles';
 
 const Home: React.FC = () => {
   const [games, setGames] = useState<Games[]>([]);
@@ -28,26 +29,37 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <ul className="listGames">
-        {games.map((game) => {
-          return (
-            <li key={game.id} >
-              <div className="gameName">{game.name}</div>
-              <div className="gameSlug">{game.slug}</div>
-              <img className="gameName" src={game.background_image} />
-              <div className="ganeGen">
-                {(game.genres).map((genre) => {
-                  return (
-                    <div key={genre.id}>
-                      {genre.name} 
+    <Header />
+      <div className="row">
+        <div className="col-lg-12">
+          <div className="container">
+            <div className="listGames">
+              {games.map((game) => {
+                return (
+                  <div key={game.id} className={`game_item_${game.id} game_item` } >
+                    <div className="image">
+                      <img className="gameName" src={game.background_image} />
                     </div>
-                  );
-                })}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+                    <div className="informations">
+                      <div className="gameName">{game.name}</div>
+                      <div className="gameSlug">{game.slug}</div>
+                      <div className="ganeGen">
+                        {(game.genres).map((genre) => {
+                          return (
+                            <div key={genre.id}>
+                              {genre.name} 
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
