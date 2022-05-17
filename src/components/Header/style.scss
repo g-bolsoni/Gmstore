@@ -27,13 +27,17 @@
             padding-left: 0;
             overflow: hidden;
             li{
-                color: var(--text-light);
                 transform: scale(1);
                 translate: all .3s linear;
                 padding: 10px 8px;
                 &:hover{
                     filter: brightness(1.2);
                     transform: scale(1.05);
+                }
+                a{
+                    list-style: none;
+                    text-decoration: none;
+                    color: var(--text-light);
                 }
             }
         }

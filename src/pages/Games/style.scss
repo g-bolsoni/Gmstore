@@ -1,0 +1,36 @@
+.listGames{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 0;
+    justify-items: center;
+    overflow: hidden;
+    align-items: start;
+    .game_item {
+        position: relative;
+        overflow: hidden;
+        .image img{
+            width: 420px;
+            height:250px;
+        }
+        .informations{
+            width: 100%;
+            height:max-content;
+            color: var(--text-light);
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: flex-start;
+            align-items:center;
+            position: absolute;
+            bottom:-100%;
+            overflow: hidden;
+            transition: all .5s  linear;
+            > div{
+                width: 100%;
+            }
+        }
+        &:hover .informations{
+            bottom: 0;
+        }
+    }
+}

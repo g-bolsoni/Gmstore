@@ -1,13 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
-import Cart from './pages/Cart';
+import { Games } from './pages/Games';
 
 const AplicationRoutes = (): JSX.Element => {
   return (
     <Routes>
       <Route path="/" element={<Home />}   />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/games" element={<Games />} />
+
     </Routes>
   );
 };

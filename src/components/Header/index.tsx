@@ -10,9 +10,8 @@ const Header: React.FC = () => {
               <div className="header-img">GMSTORE</div>
               <div className="header-categories">
                 <ul className="list list-index">
-                  <li className="item">Game</li>
-                  <li className="item">Games</li>
-                  <li className="item">Games</li>
+                  <li className="item"><a href="/">Home</a></li>
+                  <li className="item"> <a href="/games">Jogos</a></li>
                 </ul>
               </div>
             </div>
