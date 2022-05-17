@@ -4,4 +4,11 @@
     box-sizing: border-box;
     max-width: 100%;
     overflow-x: hidden;
+    background-color: var(--background-color-black);
+}
+:root {
+    --background-color-white: #f3f3f3;
+    --background-color-black: #181717;
+    --text-light: #f3f3f3;
+    --text-dark: #181717;
 }
